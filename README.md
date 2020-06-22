@@ -19,6 +19,8 @@ sudo pacman -Syyu
 
 sudo pacman -S yay
 
+# AUR
+yay --save --aururl aur.tuna.tsinghua.edu.cn
 ```
 
 ### git,zsh,vim
