@@ -31,6 +31,8 @@ sudo apt-get intall git
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# sed -i 's/(git)/(git )/' /home/ace/.zshrc
+
 ###
 
 service ssh restart
