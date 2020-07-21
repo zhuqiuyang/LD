@@ -1,8 +1,8 @@
 DEFAULT_USER="$USER"
 
 start_proxy() {
-	export http_proxy=socks://127.0.0.1:1080
-	export https_proxy=socks://127.0.0.1:1080
+	export http_proxy=socks5://127.0.0.1:1080
+	export https_proxy=socks5://127.0.0.1:1080
 }
 stop_proxy() {
 	unset http_proxy
@@ -10,7 +10,7 @@ stop_proxy() {
 }
 
 alias la="ls -a"
-alias ll="ls -l"
+alias ll="ls -al"
 alias vim="nvim"
 alias ga="git add ."
 alias gc="git commit -m"
