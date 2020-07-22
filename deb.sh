@@ -33,6 +33,15 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 # sed -i 's/(git)/(git )/' /home/ace/.zshrc
 
-###
+cat ./home/deb.zshrc >> ~/.zshrc
 
-service ssh restart
+### 5. ssr
+
+#### mannual install
+#### ssr config
+
+### 6. nvim
+
+sudo apt install nvim ranger
+
+#service ssh restart
