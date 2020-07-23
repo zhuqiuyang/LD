@@ -19,7 +19,7 @@ usermod -d /home/ace ace
 
 passwd ace
 
-vim /etc/sudoers
+echo 'ace     ALL=(ALL:ALL) ALL' >> /etc/sudoers
 
 ### 3. switch user
 su ace
