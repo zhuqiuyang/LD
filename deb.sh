@@ -1,13 +1,13 @@
 ### 1. root
 
-apt-get update
+apt update && apt upgrade
 
-apt-get upgrade
+#### base app
 
-apt-get install sudo vim
+apt install sudo git vim \
+  build-essential gcc nvim ranger
 
-
-##2.  add user
+### 2.add user
 
 useradd ace
 
@@ -22,12 +22,12 @@ passwd ace
 echo 'ace     ALL=(ALL:ALL) ALL' >> /etc/sudoers
 
 ### 3. switch user
+
 su ace
 
+cd /home/ace
 
 ### 4. zsh
-
-sudo apt-get intall git
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -40,8 +40,8 @@ cat ./home/deb.zshrc >> ~/.zshrc
 #### mannual install
 #### ssr config
 
-### 6. nvim
+### 6. spacevim
 
-sudo apt install nvim ranger
+curl -sLf https://spacevim.org/install.sh | bash
 
-#service ssh restart
+# service ssh restart
