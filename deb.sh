@@ -1,10 +1,21 @@
+### 0. PKG Detect
+PKG=""
+
+if [ -n "$(which yum 2>/dev/null)" ]
+  then PKG="yum"
+elif [ -n "$(which apt-get 2>/dev/null)" ]
+  then PKG="apt"
+fi
+
+echo "PKG use ${PKG}"
+
 ### 1. root
 
-apt update && apt upgrade
+$PKG update && $PKG upgrade
 
 #### base app
 
-apt install sudo git vim \
+$PKG install sudo git vim \
   build-essential gcc nvim ranger
 
 ### 2.add user
@@ -23,6 +34,11 @@ echo 'ace     ALL=(ALL:ALL) ALL' >> /etc/sudoers
 
 ### 3. switch user
 
+// add domain to hosts, to install oh-my-zsh
+
+cat ./etc/hosts >> /etc/hosts
+
+
 su ace
 
 cd /home/ace
@@ -33,7 +49,8 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 # sed -i 's/(git)/(git )/' /home/ace/.zshrc
 
-cat ./home/deb.zshrc >> ~/.zshrc
+# copy root dir
+# cat ./home/deb.zshrc >> ~/.zshrc
 
 ### 5. ssr
 
