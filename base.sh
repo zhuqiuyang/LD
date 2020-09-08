@@ -1,9 +1,9 @@
 ### 0. PKG Detect
 PKG=""
 
-if [ -n "$(which yum 2>/dev/null)" ]
+if [ -n "$(which yum 2> /dev/null)" ]
   then PKG="yum"
-elif [ -n "$(which apt-get 2>/dev/null)" ]
+elif [ -n "$(which apt-get 2> /dev/null)" ]
   then PKG="apt"
 fi
 
