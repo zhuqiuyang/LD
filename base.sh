@@ -15,8 +15,11 @@ $PKG update && $PKG upgrade
 
 #### base app
 
+#### dnsutils: nsloopup dig;
+
 $PKG install sudo git vim \
-  build-essential gcc nvim ranger
+  build-essential gcc nvim ranger \
+  dnsutils tmux
 
 ### 2.add user
 
