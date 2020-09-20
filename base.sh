@@ -65,3 +65,6 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 curl -sLf https://spacevim.org/install.sh | bash
 
 # service ssh restart
+
+### 7. tmux
+cp ./home/.tmux.conf /home/ace/.tmux.conf
