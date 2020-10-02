@@ -15,7 +15,13 @@ alias r="ranger"
 alias ga="git add ."
 alias gc="git commit -m"
 alias docker_rm_all_c='docker container rm $(docker container ls -a -q)'
+# tmux
+alias t="tmux"
+alias ta="tmux a"
 
 if $(which nvim 2> /dev/null)
   then alias vim="vim" && echo "nvim is install"
 fi
+
+# export LANG=en_US.UTF-8
+export LANG=zh_CN.UTF-8

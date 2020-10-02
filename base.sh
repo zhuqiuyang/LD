@@ -53,7 +53,7 @@ cd /home/ace
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# sed -i 's/(git)/(git )/' /home/ace/.zshrc
+# sed -i 's/(git)/(debian git nmap tmux sudo)/' /home/ace/.zshrc
 
 # copy root dir
 # cat ./home/deb.zshrc >> ~/.zshrc
