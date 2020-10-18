@@ -18,11 +18,13 @@ $PKG update && $PKG upgrade
 ##
 # dnsutils: nsloopup dig;
 # x11utils: setxkbmap .. 
+# tcpdump: test tcp connection
 ##
 
 $PKG install sudo git vim \
   build-essential gcc nvim ranger \
-  dnsutils tmux htop
+  dnsutils tmux htop \
+  tcpdum
 
 ### 2.add user
 
