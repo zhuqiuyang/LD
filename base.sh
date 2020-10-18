@@ -42,7 +42,7 @@ echo 'ace     ALL=(ALL:ALL) ALL' >> /etc/sudoers
 
 ### 3. switch user
 
-// add domain to hosts, to install oh-my-zsh
+# add domain to hosts, to install oh-my-zsh
 
 cat ./etc/hosts >> /etc/hosts
 
