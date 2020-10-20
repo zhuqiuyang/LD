@@ -13,6 +13,8 @@ echo "PKG use ${PKG}"
 
 $PKG update && $PKG upgrade
 
+chsh -s /usr/bin/zsh
+
 #### base app
 
 ##
@@ -46,19 +48,22 @@ echo 'ace     ALL=(ALL:ALL) ALL' >> /etc/sudoers
 
 cat ./etc/hosts >> /etc/hosts
 
-
-su ace
-
+su - ace
 cd /home/ace
+chsh -s /usr/bin/zsh
 
 ### 4. zsh
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# share dir, & link .zshrc file between user
+ZSH=/usr/local/share/.oh-my-zsh
+
+curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash
 
 # sed -i 's/(git)/(debian git nmap tmux sudo)/' /home/ace/.zshrc
 
 # copy root dir
 # cat ./home/deb.zshrc >> ~/.zshrc
+ln -s /home/ace/.zshrc /root/.zshrc
 
 ### 5. ssr
 
