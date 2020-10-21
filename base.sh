@@ -13,6 +13,8 @@ echo "PKG use ${PKG}"
 
 $PKG update && $PKG upgrade
 
+chsh -s /usr/bin/zsh
+
 #### base app
 
 ##
@@ -24,7 +26,7 @@ $PKG update && $PKG upgrade
 $PKG install sudo git vim \
   build-essential gcc nvim ranger \
   dnsutils tmux htop \
-  tcpdum
+  tcpdump
 
 ### 2. add host
 
