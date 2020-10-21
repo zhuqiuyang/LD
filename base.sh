@@ -9,7 +9,7 @@ fi
 
 echo "PKG use ${PKG}"
 
-### 1. root
+### 1. root config
 
 $PKG update && $PKG upgrade
 
@@ -26,39 +26,42 @@ $PKG install sudo git vim \
   dnsutils tmux htop \
   tcpdum
 
-### 2.add user
-
-useradd ace
-
-mkdir /home/ace
-
-chown ace:ace /home/ace -R
-
-usermod -d /home/ace ace
-
-passwd ace
-
-echo 'ace     ALL=(ALL:ALL) ALL' >> /etc/sudoers
-
-### 3. switch user
+### 2. add host
 
 # add domain to hosts, to install oh-my-zsh
 
 cat ./etc/hosts >> /etc/hosts
 
+### 3. zsh(root & NU)
 
-su ace
-
-cd /home/ace
-
-### 4. zsh
+export ZSH="/usr/local/share/.oh-my-zsh"
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# sed -i 's/(git)/(debian git nmap tmux sudo)/' /home/ace/.zshrc
+sed -i 's/(git)/(debian docker git nmap tmux sudo)/' .zshrc
 
 # copy root dir
-# cat ./home/deb.zshrc >> ~/.zshrc
+if [ $(grep "ZSHRC_APPEND_START" deb.zshrc | wc -l) -lt 1 ];
+  then
+  cat ./home/deb.zshrc >> ~/.zshrc
+fi
+
+### 3.add user
+
+echo -n "Enter New UserName:"
+read NU
+
+useradd –d /home/$NU -m $NU
+
+passwd $NU
+
+echo "$NU     ALL=(ALL:ALL) ALL" >> /etc/sudoers
+
+echo "$NU CREATE OK."
+
+ln .zshrc /home/$NU/.zshrc
+chown $NU:$NU /home/$NU/.zshrc
+su - $NU
 
 ### 5. ssr
 
@@ -72,4 +75,5 @@ curl -sLf https://spacevim.org/install.sh | bash
 # service ssh restart
 
 ### 7. tmux
-cp ./home/.tmux.conf /home/ace/.tmux.conf
+# cp ./home/.tmux.conf /home/$NU/.tmux.conf
+

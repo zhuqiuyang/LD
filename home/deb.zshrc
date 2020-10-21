@@ -1,3 +1,4 @@
+# -----------ZSHRC_APPEND_START----------------- 
 # 1.func
 start_proxy() {
 	export http_proxy=socks5://127.0.0.1:1080
@@ -25,3 +26,5 @@ fi
 
 # export LANG=en_US.UTF-8
 export LANG=zh_CN.UTF-8
+
+# -----------------ZSHRC_APPEND_END---------------
