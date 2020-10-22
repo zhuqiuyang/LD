@@ -53,7 +53,7 @@ fi
 echo -n "Enter New UserName:"
 read NU
 
-useradd -m $NU
+useradd -m -s /usr/bin/zsh $NU 
 
 passwd $NU
 
