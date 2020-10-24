@@ -66,7 +66,8 @@ set noswapfile
 set noerrorbells
 set history=1000
 
-
+set timeout                          " ----------- map timeout --------------
+set timeoutlen=250
 
 
 
