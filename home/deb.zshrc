@@ -21,7 +21,7 @@ alias t="tmux"
 alias ta="tmux a"
 
 if $(which nvim 2> /dev/null)
-  then alias vim="vim" && echo "nvim is install"
+# then alias vim="vim" && echo "nvim is install"
 fi
 
 # export LANG=en_US.UTF-8
