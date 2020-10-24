@@ -1,12 +1,14 @@
 
 " ------------------  basic --------------------
 set wrap
+syntax on                                             " enable then color ok
 set nu
 set norelativenumber
 set nocompatible
 
 " ------------------ visuals --------------------
 colorscheme desert
+
 
 " -------------------  Map  --------------------
 
@@ -21,10 +23,14 @@ map <CAPS> <nop>
 " 1. cursor direction
 inoremap <C-f> <right>
 inoremap <C-b> <left>
+inoremap hh <left>
 inoremap <C-n> <down>
+inoremap jj <down>
 inoremap <C-p> <up>
+inoremap kk <up>
 
 " 2. insert & save
+inoremap ii <ESC>
 inoremap ss <ESC>:w<CR>
 nnoremap ss :w<CR>
 nnoremap .. :source $MYVIMRC<CR>
