@@ -13,6 +13,7 @@ colorscheme desert
 " -------------------  Map  --------------------
 
 " 0. nop 
+map e <nop>
 map . <nop>
 map s <nop>
 map S <nop>
@@ -33,6 +34,7 @@ inoremap kk <up>
 inoremap ii <ESC>
 inoremap ss <ESC>:w<CR>
 nnoremap ss :w<CR>
+nnoremap ee :E<CR>
 nnoremap .. :source $MYVIMRC<CR>
 
 " 3. sidebar
