@@ -9,7 +9,6 @@ set nocompatible
 set listchars=tab:»·,trail:·
 set list
 set wildmenu
-set wildmode=longest:list,full
 
 set autoindent
 set encoding=utf-8
@@ -55,8 +54,10 @@ inoremap <C-p> <up>
 " 2. insert & save
 inoremap ss <ESC>:w<CR>
 inoremap jk <ESC>
+
+nnoremap w :bd<cr>
 nnoremap ss :w<CR>
-map <C-s> :w<CR>
+map <M-s> :w<CR>
 cmap w!!:write !sudo tee % > /dev/null
 
 nnoremap qq :q<CR>
@@ -88,6 +89,7 @@ map <tab> :bn<CR>                      " bNext
 map <s-tab> :bp<CR>
 
 nnoremap bb :bd<CR>
+
 
 " ------------------ Auto Cmd ------------------
 set autochdir
