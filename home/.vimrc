@@ -6,7 +6,12 @@ set nu
 set norelativenumber
 set nocompatible
 "set showmode
+set listchars=tab:»·,trail:·
+set list
 set wildmenu
+set wildmode=longest:list,full
+
+set autoindent
 set encoding=utf-8
 set fileencodings=utf-8
 set go=                                               " no graphic
@@ -14,6 +19,7 @@ set ruler                                             " show cursor
 
 set scrolloff=5                                       " scroll down, nu before last line
 
+let mapleader = ","
 
 
 set backspace=indent,eol,start                        " Make backspace work as you would expect.
