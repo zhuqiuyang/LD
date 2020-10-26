@@ -11,6 +11,7 @@ set listchars=tab:»·,trail:·
 set list
 set wildmenu
 
+
 set autoindent
 set encoding=utf-8
 set fileencodings=utf-8
@@ -46,7 +47,6 @@ map s <nop>
 map S <nop>
 map t <nop>
 map R <nop>
-map w <nop>
 map <CAPS> <nop>
 
 " 1. cursor direction
@@ -65,10 +65,10 @@ cmap w!!:write !sudo tee % > /dev/null
 nnoremap e :e 
 
 " ******double click********
-nnoremap bb :Lexplore<CR>                 " t is used in netrw: for TabNew.
-nnoremap qq :q<CR>                        " Leave window
+nnoremap bb :bd<cr>
 nnoremap ss :w<CR>
-nnoremap ww :bd<cr>
+nnoremap qq :Lexplore<CR>                 " t is used in netrw: for TabNew.
+nnoremap \\ :Lexplore<CR>                 " t is used in netrw: for TabNew.
 
 let g:spr = 0
 nnoremap <CR> :ls<CR>
@@ -98,7 +98,6 @@ nnoremap <C-l> :tabnext<CR>
 set hidden                             " enable hid buf
 map <tab> :bn<CR>                      " bNext
 map <s-tab> :bp<CR>
-
 
 
 " ------------------ Auto Cmd ------------------
