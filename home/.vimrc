@@ -24,7 +24,7 @@ let mapleader = ","
 set backspace=indent,eol,start                        " Make backspace work as you would expect.
 set hidden                                            " Switch between buffers without having to save first.
 
-
+set linebreak
 set splitbelow
 
 set splitright
@@ -63,17 +63,23 @@ cmap w!!:write !sudo tee % > /dev/null
 nnoremap qq :q<CR>
 
 " 3. sidebar
-nnoremap tt :Vexplore<CR>
-nnoremap ee :Explore<CR>
+let g:spr = 0
+nnoremap tt :Lexplore<CR>
+nnoremap e :e 
+nnoremap <CR> :ls<CR>
 
 let g:netrw_banner = 0                                   " remove banner in netrw
 let g:netrw_winsize = 25
 let g:netrw_browse_split = 4              " 2:vertical/3:tab/4:last window
+let g:netrw_altv = 1              " spr
+"let g:netrw_alto = 1              " spr
 
 " 4. window ( U/D/L/R )
 map <left> <C-W>h
 map <down> <C-W>j
 map <up> <C-W>k
+nnoremap J <C-W>w
+nnoremap K <C-W>K
 map <right> <C-W>l
 
 " 5. tab    (C-j/k)
