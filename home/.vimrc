@@ -5,7 +5,8 @@ syntax on                                             " enable then color ok
 set nu
 set norelativenumber
 set nocompatible
-"set showmode
+set showmode
+set showcmd
 set listchars=tab:»·,trail:·
 set list
 set wildmenu
@@ -14,7 +15,7 @@ set autoindent
 set encoding=utf-8
 set fileencodings=utf-8
 set go=                                               " no graphic
-set ruler                                             " show cursor
+set noruler                                             " show cursor
 
 set scrolloff=5                                       " scroll down, nu before last line
 
@@ -31,7 +32,8 @@ set splitright
 
 " ------------------ visuals --------------------
 colorscheme desert
-set laststatus=1                                      " bottom bar when wins amount > 1
+"set statusline=%F:\ %l                               " SPC should pre\
+set laststatus=0                                      " bottom bar when wins amount > 1
 set showtabline=1                                     " topTab bar when tabs amount > 1
 
 " -------------------  Map  --------------------
@@ -39,10 +41,12 @@ set showtabline=1                                     " topTab bar when tabs amo
 " 0. nop 
 map e <nop>
 map , <nop>
+map q <nop>
 map s <nop>
 map S <nop>
 map t <nop>
 map R <nop>
+map w <nop>
 map <CAPS> <nop>
 
 " 1. cursor direction
@@ -52,23 +56,24 @@ inoremap <C-n> <down>
 inoremap <C-p> <up>
 
 " 2. insert & save
+" 3. FileExplore
 inoremap ss <ESC>:w<CR>
 inoremap jk <ESC>
 
-nnoremap w :bd<cr>
-nnoremap ss :w<CR>
-map <M-s> :w<CR>
 cmap w!!:write !sudo tee % > /dev/null
 
-nnoremap qq :q<CR>
-
-" 3. sidebar
-let g:spr = 0
-nnoremap tt :Lexplore<CR>
 nnoremap e :e 
+
+" ******double click********
+nnoremap bb :Lexplore<CR>                 " t is used in netrw: for TabNew.
+nnoremap qq :q<CR>                        " Leave window
+nnoremap ss :w<CR>
+nnoremap ww :bd<cr>
+
+let g:spr = 0
 nnoremap <CR> :ls<CR>
 
-let g:netrw_banner = 0                                   " remove banner in netrw
+let g:netrw_banner = 0                    " remove banner in netrw
 let g:netrw_winsize = 25
 let g:netrw_browse_split = 4              " 2:vertical/3:tab/4:last window
 let g:netrw_altv = 1              " spr
@@ -94,7 +99,6 @@ set hidden                             " enable hid buf
 map <tab> :bn<CR>                      " bNext
 map <s-tab> :bp<CR>
 
-nnoremap bb :bd<CR>
 
 
 " ------------------ Auto Cmd ------------------
