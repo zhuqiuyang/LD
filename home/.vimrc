@@ -58,9 +58,10 @@ inoremap <C-p> <up>
 " 2. insert & save
 " 3. FileExplore
 inoremap ss <ESC>:w<CR>
+inoremap jj <ESC>
 inoremap jk <ESC>
 
-cmap w!!:write !sudo tee % > /dev/null
+cmap ww:write !sudo tee % > /dev/null
 
 nnoremap e :e 
 
@@ -69,6 +70,7 @@ nnoremap bb :bd<cr>
 nnoremap ss :w<CR>
 nnoremap qq :Lexplore<CR>                 " t is used in netrw: for TabNew.
 nnoremap \\ :Lexplore<CR>                 " t is used in netrw: for TabNew.
+" ww tt
 
 let g:spr = 0
 nnoremap <CR> :ls<CR>
@@ -88,10 +90,10 @@ nnoremap K <C-W>K
 map <right> <C-W>l
 
 " 5. tab    (C-j/k)
-nnoremap <C-h> :tabprevious<CR>
-nnoremap <C-l> :tabnext<CR>
-"nnoremap <up> :tabfirst<CR>
-"nnoremap <down> :tablast<CR>
+nnoremap J :tabprevious<CR>
+nnoremap K :tabnext<CR>
+nnoremap H :tabfirst<CR>
+nnoremap L :tablast<CR>
 
 " 6. buffer action
 
