@@ -1,3 +1,19 @@
+" ============ PLUG ============
+"call plug#begin('~/.vim/plugged')
+
+"call plug#end()
+" ==============================
+
+" =========== Neovim ============
+
+set guicursor=                                         " fix term bug in neovim
+"autocmd OptionSet guicursor noautocmd set guicursor=
+
+" --------- terminal ---------
+tnoremap jk <C-\><C-n>
+
+
+" ===============================
 
 " ------------------  basic --------------------
 set wrap
@@ -70,6 +86,7 @@ nnoremap bb :bd<cr>
 nnoremap ss :w<CR>
 nnoremap qq :Lexplore<CR>                 " t is used in netrw: for TabNew.
 nnoremap \\ :Lexplore<CR>                 " t is used in netrw: for TabNew.
+nnoremap tt :terminal<cr>
 " ww tt
 
 let g:spr = 0

@@ -14,6 +14,7 @@ alias la="ls -a"
 alias ll="ls -al"
 alias r="ranger"
 alias ga="git add ."
+alias gd="git diff"
 alias gc="git commit -m"
 alias docker_rm_all_c='docker container rm $(docker container ls -a -q)'
 # tmux
