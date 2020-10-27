@@ -20,6 +20,8 @@ alias docker_rm_all_c='docker container rm $(docker container ls -a -q)'
 # tmux
 alias t="tmux"
 alias ta="tmux a"
+# vim
+alias vim="nvim"
 
 if $(which nvim 2> /dev/null)
 # then alias vim="vim" && echo "nvim is install"

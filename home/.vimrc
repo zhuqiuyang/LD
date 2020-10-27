@@ -9,8 +9,10 @@
 set guicursor=                                         " fix term bug in neovim
 "autocmd OptionSet guicursor noautocmd set guicursor=
 
+
 " --------- terminal ---------
 tnoremap jk <C-\><C-n>
+tnoremap qq <C-u><C-d><cr>
 
 
 " ===============================
