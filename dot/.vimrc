@@ -14,6 +14,13 @@ tnoremap jk <C-\><C-n>
 tnoremap qq <C-u><C-d><cr>
 
 
+if has('nvim') && executable('nvr')
+
+  let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+
+endif
+
+
 " ===============================
 
 " ------------------  basic --------------------
@@ -27,7 +34,7 @@ set showcmd
 set listchars=tab:»·,trail:·
 set list
 set wildmenu
-
+set pastetoggle=<F3>
 
 set autoindent
 set encoding=utf-8
