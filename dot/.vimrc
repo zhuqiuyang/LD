@@ -25,10 +25,13 @@ endif
 
 " ------------------  basic --------------------
 set wrap
+set foldmethod=indent
 syntax on                                             " enable then color ok
+filetype indent on
+set ttyfast
+set lazyredraw
 set nu
 set norelativenumber
-set nocompatible
 set showmode
 set showcmd
 set listchars=tab:»·,trail:·
@@ -46,6 +49,8 @@ set scrolloff=5                                       " scroll down, nu before l
 
 let mapleader = ","
 
+set autoread
+
 
 set backspace=indent,eol,start                        " Make backspace work as you would expect.
 set hidden                                            " Switch between buffers without having to save first.
@@ -57,7 +62,7 @@ set splitright
 
 " ------------------ visuals --------------------
 colorscheme desert
-"set statusline=%F:\ %l                               " SPC should pre\
+"set statusline=%F%m%r%h%w%=[%{&ff}\|%Y]\ (line\ %l\/%L,\ col\ %c)\ " SPC should pre\
 set laststatus=0                                      " bottom bar when wins amount > 1
 set showtabline=1                                     " topTab bar when tabs amount > 1
 
@@ -123,6 +128,7 @@ nnoremap J :tabprevious<CR>
 nnoremap K :tabnext<CR>
 nnoremap H :tabfirst<CR>
 nnoremap L :tablast<CR>
+set tabpagemax=40
 
 " 6. buffer action
 
@@ -137,13 +143,15 @@ set autochdir
 
 " tab to space
 set expandtab
-set tabstop=2
-set shiftwidth=2
+set softtabstop=2                      " Indent 2 spc when hidding tabs
+set tabstop=2                          " show exit tab for 2 spc
+set shiftwidth=2                       " Indent 2 spc when auto-indent
 
 " ---------------- Search ---------------- 
 "set cursorline
 set hlsearch
-set incsearch
+"set incsearc
+set showmatch
 
 " ------------------------ edit --------------
 set nobackup
@@ -160,3 +168,5 @@ augroup atsource
   autocmd!
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
+"au FocusLost * :wa
+
