@@ -6,4 +6,5 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 sed -i 's/(git)/(debian docker git nmap tmux sudo)/' $HOME/.zshrc
 
-cat $HOME/LD/dot/add.zshrc >> ~/.zshrc
+echo "$HOME/LD/dot/add.zshrc" >> ~/.zshrc
+
