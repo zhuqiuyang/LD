@@ -74,9 +74,13 @@ map R <nop>
 map <CAPS> <nop>
 
 " 1. cursor direction
+inoremap <C-l> <right>
 inoremap <C-f> <right>
+inoremap <C-h> <left>
 inoremap <C-b> <left>
+inoremap <C-j> <down>
 inoremap <C-n> <down>
+inoremap <C-k> <up>
 inoremap <C-p> <up>
 
 " 2. insert & save
