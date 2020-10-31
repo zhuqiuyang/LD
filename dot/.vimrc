@@ -47,7 +47,7 @@ set noruler                                             " show cursor
 
 set scrolloff=5                                       " scroll down, nu before last line
 
-let mapleader = ","
+let mapleader = "\<Space>"
 
 set autoread
 
@@ -90,7 +90,8 @@ inoremap <C-p> <up>
 
 " 2. insert & save
 " 3. FileExplore
-inoremap ss <ESC>:w<CR>
+inoremap ss <ESC>:update<CR>
+nnoremap <Leader>w :echo "hello"<CR>
 inoremap jj <ESC>
 inoremap jk <ESC>
 
@@ -100,7 +101,7 @@ nnoremap e :e
 
 " ******double click********
 nnoremap bb :bd<cr>
-nnoremap ss :w<CR>
+nnoremap update :w<CR>
 nnoremap qq :Lexplore<CR>                 " t is used in netrw: for TabNew.
 nnoremap \\ :Lexplore<CR>                 " t is used in netrw: for TabNew.
 nnoremap tt :terminal<cr>
