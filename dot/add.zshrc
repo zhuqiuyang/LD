@@ -47,5 +47,7 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 export LANG=en_US.UTF-8
 # export LANG=zh_CN.UTF-8
 
+# go
+export GOPATH=~/gopath
 
 # -----------------ZSHRC_APPEND_END---------------
