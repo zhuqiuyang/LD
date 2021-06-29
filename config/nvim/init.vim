@@ -145,12 +145,13 @@ nnoremap tt :sp\|resize 15\|te<CR>
 let g:spr = 0
 nnoremap <CR> :ls<CR>
 
+nnoremap <C-o> :Hexplore<CR>                 " t is used in netrw: for TabNew.
 let g:netrw_banner = 0                    " remove banner in netrw
 let g:netrw_winsize = 25
 let g:netrw_browse_split = 4              " 2:vertical/3:tab/4:last window
-let g:netrw_altv = 1              " spr
-"let g:netrw_alto = 1              " spr
-let g:netrw_winpostion = "right"
+let g:netrw_preview = 0
+let g:netrw_alto = 1
+"let g:netrw_altv = 1              " spr
 
 " 4. window ( U/D/L/R )
 map <left> <C-W>h
