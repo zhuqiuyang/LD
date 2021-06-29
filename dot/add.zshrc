@@ -19,7 +19,6 @@ alias gd="git diff"
 alias gc="git commit -m"
 alias gp="git push origin master"
 alias docker_rm_all_c='docker container rm $(docker container ls -a -q)'
-alias python=python3
 
 # tmux
 alias t="tmux"
