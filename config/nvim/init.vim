@@ -1,7 +1,7 @@
 
 " Be iMproved
 
-set nocompatible               
+set nocompatible
 let mapleader = "\<Space>"
 
 
@@ -40,7 +40,7 @@ syntax enable
 " =========== Neovim ============
 "
 " fix term bug in neovim
-set guicursor=                                         
+set guicursor=
 
 
 
@@ -61,7 +61,7 @@ set wrap
 set foldmethod=indent
 "
 " enable then color ok
-syntax on                                             
+syntax on
 set ttyfast
 
 "在执行宏命令时，不进行显示重绘；在宏命令执行完成后，一次性重绘，以便提高性能。
@@ -85,21 +85,27 @@ set fileencodings=utf-8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set go=                                                 " no graphic
-set noruler                                             " show cursor
+" no graphic
+set go=
+" show cursor
+set noruler
 
-set scrolloff=5                                       " scroll down, nu before last line
+" scroll down, nu before last line
+set scrolloff=5
 
 
 set autoread
 au FocusGained,BufEnter * checktime
 
 
-set backspace=indent,eol,start                        " Make backspace work as you would expect.
+" Make backspace work as you would expect.
+set backspace=indent,eol,start
+
 "允许backspace和光标键跨越行边界
 set whichwrap+=<,>,h,l
 
-set hidden                                            " Switch between buffers without having to save first.
+" Switch between buffers without having to save first.
+set hidden
 
 set linebreak
 set splitbelow
@@ -112,12 +118,15 @@ set wildignore=*.o,*~,*.pyc,*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 " ------------------ visuals --------------------
 colorscheme desert
 
-set laststatus=0                                      " bottom bar when wins amount > 1
-set showtabline=1                                     " topTab bar when tabs amount > 1
+" bottom bar when wins amount > 1
+set laststatus=0
+"
+" topTab bar when tabs amount > 1
+set showtabline=1
 
 " -------------------  Map  --------------------
 
-" 0. nop 
+" 0. nop
 map e <nop>
 map , <nop>
 map q <nop>
@@ -137,32 +146,36 @@ inoremap <C-v> <C-r>"
 
 " 2. insert & save
 " 3. FileExplore
-inoremap ss <ESC>:update<CR>
-nnoremap <Leader>w :echo "hello"<CR>
-inoremap jj <ESC>
 inoremap jk <ESC>
 
-cmap ww:write !sudo tee % > /dev/null
+cnoremap ww w !sudo tee % > /dev/null
 
 nnoremap e :e
 
 " ******double click********
+nnoremap <Leader>w :echo "hello"<CR>
+nnoremap ss <ESC>:update<CR>
 nnoremap <Leader>d :bd<cr>
-nnoremap qq :Defx<CR>                     " t is used in netrw: for TabNew.
+" t is used in netrw: for TabNew.
+nnoremap qq :Defx<CR>
 nnoremap tt :sp\|resize 15\|te<CR>
 " ww tt
 
 let g:spr = 0
 nnoremap <CR> :ls<CR>
 
-nnoremap \\ :Lexplore<CR>                 " t is used in netrw: for TabNew.
-let g:netrw_banner = 0                    " remove banner in netrw
+" t is used in netrw: for TabNew.
+nnoremap \\ :Lexplore<CR>
+" remove banner in netrw
+let g:netrw_banner = 0
 let g:netrw_winsize = 25
-let g:netrw_browse_split = 4              " 2:vertical/3:tab/4:last window
+
+" 2:vertical/3:tab/4:last window
+let g:netrw_browse_split = 4
 let g:netrw_preview = 0
 let g:netrw_alto = 1
 let g:netrw_liststyle = 3
-"let g:netrw_altv = 1              " spr
+"let g:netrw_altv = 1
 
 " 4. window ( HJKL ) && terminal
 tnoremap <Esc> <C-\><C-n>
@@ -198,7 +211,8 @@ set tabpagemax=40
 
 " 6. buffer action
 
-map <tab> :bn<CR>                      " bNext
+" bNext
+map <tab> :bn<CR>
 map <s-tab> :bp<CR>
 
 
@@ -212,11 +226,14 @@ noremap <F2> :set number!<CR>
 
 " tab to space
 set expandtab
-set softtabstop=2                      " Indent 2 spc when hidding tabs
-set tabstop=2                          " show exit tab for 2 spc
-set shiftwidth=2                       " Indent 2 spc when auto-indent
+" Indent 2 spc when hidding tabs
+set softtabstop=2
+" show exit tab for 2 spc
+set tabstop=2
+" Indent 2 spc when auto-indent
+set shiftwidth=2
 
-" ---------------- Search ---------------- 
+" ---------------- Search ----------------
 "set cursorline
 set hlsearch
 "set incsearc
@@ -228,7 +245,8 @@ set noswapfile
 set noerrorbells
 set history=300
 
-set timeout                          " ----------- map timeout --------------
+" ----------- map timeout --------------
+set timeout
 set timeoutlen=250
 
 
@@ -247,3 +265,13 @@ try
   set stal=2
 catch
 endtry
+
+
+fun! CleanExtraSpaces()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    silent! %s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+endfun
+command! CleanExtraSpaces call CleanExtraSpaces()
