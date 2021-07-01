@@ -49,5 +49,5 @@ export LANG=en_US.UTF-8
 
 # go
 export GOPATH=~/gopath
-
+PATH=$PATH:$HOME/.cargo/bin
 # -----------------ZSHRC_APPEND_END---------------

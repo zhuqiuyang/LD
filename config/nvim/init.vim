@@ -41,26 +41,6 @@ syntax enable
 set guicursor=                                         " fix term bug in neovim
 "autocmd OptionSet guicursor noautocmd set guicursor=
 
-" --------- terminal ---------
-tnoremap <Esc> <C-\><C-n>
-tnoremap jk <C-\><C-n>
-tnoremap qq <C-u><C-d><cr>
-tnoremap <C-j> <C-\><C-N><C-w>j
-tnoremap <C-k> <C-\><C-N><C-w>k
-
-" 4. window ( C-h/j/k/l )
-map <left> <C-W>h
-map <down> <C-W>j
-map <up> <C-W>k
-map <right> <C-W>l
-
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-au TermOpen * setlocal list
-autocmd TermOpen * setlocal statusline=%{b:term_title}
 
 
 if has('nvim') && executable('nvr')
@@ -162,17 +142,15 @@ cmap ww:write !sudo tee % > /dev/null
 nnoremap e :e
 
 " ******double click********
-nnoremap bb :bd<cr>
-nnoremap update :w<CR>
-nnoremap qq :Defx<CR>                 " t is used in netrw: for TabNew.
-nnoremap \\ :Lexplore<CR>                 " t is used in netrw: for TabNew.
+nnoremap <Leader>d :bd<cr>
+nnoremap qq :Defx<CR>                     " t is used in netrw: for TabNew.
 nnoremap tt :sp\|resize 15\|te<CR>
 " ww tt
 
 let g:spr = 0
 nnoremap <CR> :ls<CR>
 
-nnoremap <C-o> :Hexplore<CR>                 " t is used in netrw: for TabNew.
+nnoremap \\ :Lexplore<CR>                 " t is used in netrw: for TabNew.
 let g:netrw_banner = 0                    " remove banner in netrw
 let g:netrw_winsize = 25
 let g:netrw_browse_split = 4              " 2:vertical/3:tab/4:last window
@@ -181,10 +159,34 @@ let g:netrw_alto = 1
 let g:netrw_liststyle = 3
 "let g:netrw_altv = 1              " spr
 
+" 4. window ( HJKL ) && terminal
+tnoremap <Esc> <C-\><C-n>
+tnoremap jk <C-\><C-n>
+tnoremap qq <C-u><C-d><cr>
+tnoremap <C-j> <C-\><C-N><C-w>j
+tnoremap <C-k> <C-\><C-N><C-w>k
+
+map <left> <C-W>h
+map <down> <C-W>j
+map <up> <C-W>k
+map <right> <C-W>l
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+function TerminalStart()
+  setlocal modifiable
+  setlocal list
+  setlocal statusline=%{b:term_title}
+endfunction
+autocmd TermOpen * :call TerminalStart()
+
 
 " 5. tab    (C-j/k)
-nnoremap J :tabprevious<CR>
-nnoremap K :tabnext<CR>
+nnoremap K :tabprevious<CR>
+nnoremap J :tabnext<CR>
 nnoremap H :tabfirst<CR>
 nnoremap L :tablast<CR>
 set tabpagemax=40
