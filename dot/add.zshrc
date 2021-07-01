@@ -49,5 +49,9 @@ export LANG=en_US.UTF-8
 
 # go
 export GOPATH=~/gopath
-PATH=$PATH:$HOME/.cargo/bin
+
+# add sbin make hx editor <SPC> f work ok!
+PATH=$PATH:$HOME/.cargo/bin:/usr/sbin
+
+## Function
 # -----------------ZSHRC_APPEND_END---------------
