@@ -42,8 +42,25 @@ set guicursor=                                         " fix term bug in neovim
 "autocmd OptionSet guicursor noautocmd set guicursor=
 
 " --------- terminal ---------
+tnoremap <Esc> <C-\><C-n>
 tnoremap jk <C-\><C-n>
 tnoremap qq <C-u><C-d><cr>
+tnoremap <C-j> <C-\><C-N><C-w>j
+tnoremap <C-k> <C-\><C-N><C-w>k
+
+" 4. window ( C-h/j/k/l )
+map <left> <C-W>h
+map <down> <C-W>j
+map <up> <C-W>k
+map <right> <C-W>l
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+au TermOpen * setlocal list
+autocmd TermOpen * setlocal statusline=%{b:term_title}
 
 
 if has('nvim') && executable('nvr')
@@ -63,6 +80,7 @@ set wrap
 set foldmethod=indent
 syntax on                                             " enable then color ok
 set ttyfast
+"在执行宏命令时，不进行显示重绘；在宏命令执行完成后，一次性重绘，以便提高性能。
 set lazyredraw
 set nonu
 set norelativenumber
@@ -75,24 +93,37 @@ set wildmenu
 set pastetoggle=<F3>
 
 set autoindent
-set encoding=utf-8
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
 set fileencodings=utf-8
-set go=                                               " no graphic
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
+set go=                                                 " no graphic
 set noruler                                             " show cursor
 
 set scrolloff=5                                       " scroll down, nu before last line
 
 
 set autoread
+au FocusGained,BufEnter * checktime
 
 
 set backspace=indent,eol,start                        " Make backspace work as you would expect.
+"允许backspace和光标键跨越行边界
+set whichwrap+=<,>,h,l
+
 set hidden                                            " Switch between buffers without having to save first.
 
 set linebreak
 set splitbelow
 
 set splitright
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc,*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+
 
 " ------------------ visuals --------------------
 colorscheme desert
@@ -114,13 +145,9 @@ map <tab> <nop>
 map <CAPS> <nop>
 
 " 1. cursor direction
-inoremap <C-l> <right>
 inoremap <C-f> <right>
-inoremap <C-h> <left>
 inoremap <C-b> <left>
-inoremap <C-j> <down>
 inoremap <C-n> <down>
-inoremap <C-k> <up>
 inoremap <C-p> <up>
 
 " 2. insert & save
@@ -151,15 +178,9 @@ let g:netrw_winsize = 25
 let g:netrw_browse_split = 4              " 2:vertical/3:tab/4:last window
 let g:netrw_preview = 0
 let g:netrw_alto = 1
+let g:netrw_liststyle = 3
 "let g:netrw_altv = 1              " spr
 
-" 4. window ( U/D/L/R )
-map <left> <C-W>h
-map <down> <C-W>j
-map <up> <C-W>k
-nnoremap J <C-W>w
-nnoremap K <C-W>K
-map <right> <C-W>l
 
 " 5. tab    (C-j/k)
 nnoremap J :tabprevious<CR>
@@ -170,7 +191,6 @@ set tabpagemax=40
 
 " 6. buffer action
 
-set hidden                             " enable hid buf
 map <tab> :bn<CR>                      " bNext
 map <s-tab> :bp<CR>
 
@@ -180,7 +200,7 @@ noremap <F2> :set number!<CR>
 
 
 " ------------------ Auto Cmd ------------------
-set autochdir
+" set autochdir
 
 
 " tab to space
@@ -214,3 +234,9 @@ augroup END
 
 
 source $HOME/.config/nvim/defx.vim
+
+try
+  set switchbuf=useopen,usetab,newtab
+  set stal=2
+catch
+endtry
