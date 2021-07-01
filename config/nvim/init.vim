@@ -1,6 +1,7 @@
 
-set nocompatible               " Be iMproved
+" Be iMproved
 
+set nocompatible               
 let mapleader = "\<Space>"
 
 
@@ -37,15 +38,15 @@ syntax enable
 " ==============================
 
 " =========== Neovim ============
-
-set guicursor=                                         " fix term bug in neovim
-"autocmd OptionSet guicursor noautocmd set guicursor=
+"
+" fix term bug in neovim
+set guicursor=                                         
 
 
 
 if has('nvim') && executable('nvr')
 
-"  let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+  let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
 
 endif
 
@@ -58,8 +59,11 @@ let g:python3_host_prog='/usr/bin/python3.7'
 " ------------------  basic --------------------
 set wrap
 set foldmethod=indent
-syntax on                                             " enable then color ok
+"
+" enable then color ok
+syntax on                                             
 set ttyfast
+
 "在执行宏命令时，不进行显示重绘；在宏命令执行完成后，一次性重绘，以便提高性能。
 set lazyredraw
 set nonu
@@ -129,6 +133,7 @@ inoremap <C-f> <right>
 inoremap <C-b> <left>
 inoremap <C-n> <down>
 inoremap <C-p> <up>
+inoremap <C-v> <C-r>"
 
 " 2. insert & save
 " 3. FileExplore
