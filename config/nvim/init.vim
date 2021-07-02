@@ -119,7 +119,9 @@ set wildignore=*.o,*~,*.pyc,*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 colorscheme desert
 
 " bottom bar when wins amount > 1
-set laststatus=0
+set laststatus=2
+" set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+
 "
 " topTab bar when tabs amount > 1
 set showtabline=1
