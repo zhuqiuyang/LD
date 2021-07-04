@@ -2,9 +2,9 @@
 PKG=""
 
 if [ -n "$(which yum 2> /dev/null)" ]
-  then PKG="yum"
+then PKG="yum"
 elif [ -n "$(which apt-get 2> /dev/null)" ]
-  then PKG="apt"
+then PKG="apt"
 fi
 
 echo "PKG use ${PKG}"

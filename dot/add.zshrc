@@ -1,4 +1,5 @@
 # -----------ZSHRC_APPEND_START----------------- 
+# plugins=(debian docker git nmap tmux sudo autosuggestions)
 #
 # 1.func
 start_proxy() {
@@ -51,7 +52,9 @@ export LANG=en_US.UTF-8
 export GOPATH=~/gopath
 
 # add sbin make hx editor <SPC> f work ok!
-PATH=$PATH:$HOME/.cargo/bin:/usr/sbin
+# PATH=$PATH:$HOME/.cargo/bin:/usr/sbin
+export PATH=$PATH:/usr/sbin
 
 ## Function
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#bbbbbb"
 # -----------------ZSHRC_APPEND_END---------------
