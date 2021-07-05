@@ -2,6 +2,7 @@
 " Be iMproved
 
 set nocompatible
+set history=100
 let mapleader = "\<Space>"
 
 
@@ -23,6 +24,7 @@ call dein#add('Shougo/defx.nvim')
 call dein#end()
 
 " Required:
+source $HOME/.config/nvim/defx.vim
 filetype plugin indent on
 syntax enable
 
@@ -116,15 +118,15 @@ set wildignore=*.o,*~,*.pyc,*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 
 
 " ------------------ visuals --------------------
-colorscheme desert
+colorscheme peachpuff
 
 " bottom bar when wins amount > 1
-set laststatus=2
+set laststatus=0
 " set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 "
 " topTab bar when tabs amount > 1
-set showtabline=1
+set tabpagemax=5
 
 " -------------------  Map  --------------------
 
@@ -138,13 +140,11 @@ map t <nop>
 map R <nop>
 map <tab> <nop>
 map <CAPS> <nop>
+map <Ctrl-s> <nop>
 
 " 1. cursor direction
-inoremap <C-f> <right>
-inoremap <C-b> <left>
-inoremap <C-n> <down>
-inoremap <C-p> <up>
 inoremap <C-v> <C-r>"
+inoremap <C-s> <ESC>:update<CR>
 
 " 2. insert & save
 " 3. FileExplore
@@ -152,7 +152,7 @@ inoremap jk <ESC>
 
 cnoremap ww w !sudo tee % > /dev/null
 
-nnoremap e :e
+nnoremap e :e 
 
 " ******double click********
 nnoremap <Leader>w :echo "hello"<CR>
@@ -166,18 +166,6 @@ nnoremap tt :sp\|resize 15\|te<CR>
 let g:spr = 0
 nnoremap <CR> :ls<CR>
 
-" t is used in netrw: for TabNew.
-nnoremap \\ :Lexplore<CR>
-" remove banner in netrw
-let g:netrw_banner = 0
-let g:netrw_winsize = 25
-
-" 2:vertical/3:tab/4:last window
-let g:netrw_browse_split = 4
-let g:netrw_preview = 0
-let g:netrw_alto = 1
-let g:netrw_liststyle = 3
-"let g:netrw_altv = 1
 
 " 4. window ( HJKL ) && terminal
 tnoremap <Esc> <C-\><C-n>
@@ -209,7 +197,6 @@ nnoremap K :tabprevious<CR>
 nnoremap J :tabnext<CR>
 nnoremap H :tabfirst<CR>
 nnoremap L :tablast<CR>
-set tabpagemax=40
 
 " 6. buffer action
 
@@ -260,11 +247,10 @@ augroup END
 "au FocusLost * :wa
 
 
-source $HOME/.config/nvim/defx.vim
 
 try
   set switchbuf=useopen,usetab,newtab
-  set stal=2
+  set showtabline=1
 catch
 endtry
 
