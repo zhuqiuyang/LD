@@ -140,7 +140,6 @@ map t <nop>
 map R <nop>
 map <tab> <nop>
 map <CAPS> <nop>
-map <Ctrl-s> <nop>
 
 " 1. cursor direction
 inoremap <C-v> <C-r>"
@@ -263,3 +262,10 @@ fun! CleanExtraSpaces()
     call setreg('/', old_query)
 endfun
 command! CleanExtraSpaces call CleanExtraSpaces()
+
+" Allow us to use Ctrl-s and Ctrl-q as keybinds
+" silent !stty -ixoff
+
+" Restore default behaviour when leaving Vim.
+" autocmd VimLeave * silent !stty ixon
+
