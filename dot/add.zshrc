@@ -1,10 +1,13 @@
 # -----------ZSHRC_APPEND_START----------------- 
-# plugins=(debian docker git nmap tmux sudo autosuggestions)
+plugins=(debian docker git nmap sudo zsh-autosuggestions)
+
+source $ZSH/oh-my-zsh.sh
+
 #
 # 1.func
 start_proxy() {
-	export http_proxy=socks5://127.0.0.1:1087
-	export https_proxy=socks5://127.0.0.1:1087
+	export http_proxy=http://127.0.0.1:1087
+	export https_proxy=http://127.0.0.1:1087
 }
 stop_proxy() {
 	unset http_proxy
