@@ -8,14 +8,14 @@ let mapleader = "\<Space>"
 
 "dein Scripts-----------------------------
 " Required:
-set runtimepath+=/home/ace/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-call dein#begin('/home/ace/.cache/dein')
+call dein#begin('~/.cache/dein')
 
 " Let dein manage dein
 " Required:
-call dein#add('/home/ace/.cache/dein/repos/github.com/Shougo/dein.vim')
+call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
 " Add or remove your plugins here like this:
 call dein#add('Shougo/defx.nvim')
@@ -53,7 +53,7 @@ if has('nvim') && executable('nvr')
 endif
 
 let g:python_host_prog='/usr/bin/python2'
-let g:python3_host_prog='/usr/bin/python3.7'
+let g:python3_host_prog='/usr/bin/python3'
 
 
 " ===============================
